@@ -35,10 +35,12 @@ public class Producer {
                 Customer custm = new Customer(rnd.nextInt(), UUID.randomUUID().toString());
                 producer.send(new ProducerRecord<String, Customer>(config.getTopic(),
                         null, null, UUID.randomUUID().toString(), custm));
-            }
 
+                //log.info("sleeping for {} seconds ms", (long)(1000/(Math.ceil(wrld.getDatay().get(i)))));
+              //  Thread.sleep((long)(1000/(Math.ceil(wrld.getDatay().get(i)))));
+            }
             log.info("sent {} events Per Second ", Math.ceil(wrld.getDatay().get(i)));
-            log.info("sleeping for {} seconds", 1);
+
             Thread.sleep(delay);
         }
     }
